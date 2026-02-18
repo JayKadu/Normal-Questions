@@ -1,6 +1,6 @@
 //693. Binary Number with Alternating Bits
 // Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.
-
+//1
 class Solution {
     public boolean hasAlternatingBits(int n) {
         String bits = Integer.toBinaryString(n);
@@ -14,5 +14,20 @@ class Solution {
             }
         }
         return output;
+    }
+}
+//2
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        int previousBit = -1;
+        while(n != 0){
+            int currentBit = n & 1;
+            if( previousBit == currentBit ){
+                return false;
+            }
+            previousBit = currentBit;
+            n >>= 1;
+        }
+        return true;
     }
 }
